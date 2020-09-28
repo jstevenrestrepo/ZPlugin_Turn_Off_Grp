@@ -1,0 +1,25 @@
+// J. Steven Restrepo S. - 3D Character Artist
+// https://jstevenrestrepo.artstation.com/
+
+
+// ------------- Turn Off GRP option script  -------------
+
+[VarDef,subtool_Index,0]
+
+[ISubPalette,"Zplugin:JSRS_Scripts"]
+
+[IButton,"Zplugin:JSRS_Scripts:Grp_Off","Turn Off the GRP export option in every subtool",
+
+	[Varset,subtool_Index,[SubtoolGetActiveIndex]]
+	[SubtoolSelect, 0]
+
+	[Loop,666,
+
+
+	[IUnPress,Tool:Export:Grp]
+
+	[If,[IsEnabled,Tool:SubTool:SelectDown],
+		[SubToolSelect,LoopNum],
+		[LoopExit]]
+	,loopNum]
+]
